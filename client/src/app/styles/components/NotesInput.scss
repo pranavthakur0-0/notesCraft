@@ -1,0 +1,17 @@
+@use '../variables';
+@use "sass:color";
+
+
+.generated-notes-input{
+  width: 100%;
+  height: 75vh;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: variables.$text-primary;
+
+}
+
+.generated-notes{
+  height: fit-content;
+}

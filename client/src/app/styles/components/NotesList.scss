@@ -1,0 +1,79 @@
+@use '../variables';
+@use "sass:color";
+
+.notes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: variables.$spacing-4;
+  margin-top: variables.$spacing-6;
+
+  &__item {
+    background-color: variables.$card-background;
+    border-radius: variables.$border-radius-lg;
+    border: 1px solid variables.$border-color;
+    padding: variables.$spacing-4;
+    transition: all variables.$transition-normal;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: variables.$shadow-md;
+      border-color: rgba(variables.$primary-color, 0.3);
+    }
+
+    &-title {
+      font-size: variables.$font-size-lg;
+      font-weight: 600;
+      margin-bottom: variables.$spacing-2;
+      color: variables.$text-primary;
+    }
+
+    &-content {
+      font-size: variables.$font-size-sm;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$spacing-3;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+
+    &-date {
+      font-size: variables.$font-size-xs;
+      color: variables.$text-secondary;
+      display: flex;
+      align-items: center;
+      gap: variables.$spacing-1;
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: variables.$spacing-2;
+      margin-top: variables.$spacing-3;
+    }
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: variables.$spacing-10;
+    background-color: rgba(variables.$light-color, 0.5);
+    border-radius: variables.$border-radius-lg;
+    border: 1px dashed variables.$border-color;
+
+    &-title {
+      font-size: variables.$font-size-xl;
+      font-weight: 600;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$spacing-2;
+    }
+
+    &-text {
+      font-size: variables.$font-size-md;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$spacing-4;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@use '../variables';
+@use "sass:color";
+
+.notes-editor {
+  padding: variables.$spacing-6;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+
+  &__header {
+    margin-bottom: variables.$spacing-6;
+
+    h1 {
+      font-size: variables.$font-size-3xl;
+      font-weight: 700;
+      margin-bottom: variables.$spacing-2;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$spacing-4;
+    margin-bottom: variables.$spacing-6;
+
+    label {
+      font-size: variables.$font-size-sm;
+      font-weight: 600;
+      color: variables.$text-secondary;
+      margin-bottom: variables.$spacing-1;
+    }
+  }
+
+  &__title-input {
+    width: 100%;
+    padding: variables.$spacing-3 variables.$spacing-4;
+    border: 1px solid variables.$border-color;
+    border-radius: variables.$border-radius-md;
+    font-size: variables.$font-size-lg;
+    font-weight: 500;
+
+    &:focus {
+      outline: none;
+      border-color: variables.$primary-color;
+    }
+  }
+
+  &__content-input {
+    width: 100%;
+    min-height: 250px;
+    padding: variables.$spacing-4;
+    border: 1px solid variables.$border-color;
+    border-radius: variables.$border-radius-md;
+    font-family: variables.$font-family;
+    font-size: variables.$font-size-md;
+    line-height: 1.6;
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: variables.$primary-color;
+    }
+  }
+
+  &__button {
+    align-self: flex-start;
+    margin-top: variables.$spacing-2;
+  }
+}

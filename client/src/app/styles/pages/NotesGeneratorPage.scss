@@ -1,0 +1,253 @@
+@use '../variables';
+@use "sass:color";
+
+.notebook-select {
+  padding: variables.$spacing-6;
+  // margin: 0 auto;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: variables.$spacing-6;
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: variables.$spacing-1;
+    color: variables.$text-secondary;
+    font-size: variables.$font-size-sm;
+    margin-right: variables.$spacing-4;
+
+    &:hover {
+      color: variables.$primary-color;
+    }
+  }
+
+  &__title {
+    font-size: variables.$font-size-3xl;
+    font-weight: 700;
+    color: variables.$text-primary;
+  }
+
+  &__subtitle {
+    font-size: variables.$font-size-lg;
+    color: variables.$text-secondary;
+    margin-bottom: variables.$spacing-8;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: variables.$spacing-4;
+    margin-top: variables.$spacing-6;
+  }
+
+  &__card {
+    background-color: variables.$card-background;
+    border-radius: variables.$border-radius-lg;
+    padding: variables.$spacing-6;
+    box-shadow: variables.$shadow-sm;
+    border: 1px solid variables.$border-color;
+    transition: all variables.$transition-normal;
+    cursor: pointer;
+
+    &:hover {
+      border-color: rgba(variables.$primary-color, 0.3);
+    }
+
+    &-title {
+      font-size: variables.$font-size-lg;
+      font-weight: 600;
+      margin-bottom: variables.$spacing-2;
+      color: variables.$text-primary;
+    }
+
+    &-count {
+      font-size: variables.$font-size-sm;
+      color: variables.$text-secondary;
+    }
+
+    &-icon {
+      font-size: 32px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(variables.$primary-color, 0.1);
+      color: variables.$primary-color;
+      border-radius: variables.$border-radius-full;
+      margin: 0 auto variables.$spacing-4;
+    }
+
+    &--add {
+      border-style: dashed;
+      text-align: center;
+
+      .notebook-select__card-title {
+        color: variables.$primary-color;
+      }
+    }
+  }
+}
+
+.generated-notes {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: variables.$spacing-6;
+    margin-bottom: variables.$spacing-4;
+
+    h2 {
+      font-size: variables.$font-size-2xl;
+      font-weight: 700;
+      margin-top: variables.$spacing-2;
+    }
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: variables.$spacing-1;
+    color: variables.$text-secondary;
+    font-size: variables.$font-size-sm;
+    margin-bottom: variables.$spacing-2;
+
+    &:hover {
+      color: variables.$primary-color;
+    }
+  }
+
+  &__notebook {
+    display: flex;
+    align-items: center;
+    gap: variables.$spacing-2;
+    font-size: variables.$font-size-sm;
+    padding: variables.$spacing-2 variables.$spacing-4;
+    background-color: rgba(variables.$light-color, 0.5);
+    border-radius: variables.$border-radius-full;
+
+    span {
+      color: variables.$text-secondary;
+    }
+
+    strong {
+      color: variables.$text-primary;
+      font-weight: 600;
+    }
+  }
+
+  &__loader {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(variables.$primary-color, 0.1);
+    border-left-color: variables.$primary-color;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.notes-generator {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: variables.$spacing-6;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: variables.$font-size-3xl;
+    font-weight: 700;
+    color: variables.$text-primary;
+    margin-bottom: variables.$spacing-2;
+  }
+
+  &__subtitle {
+    font-size: variables.$font-size-lg;
+    color: variables.$text-secondary;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &__back-button {
+    position: absolute;
+    bottom: variables.$spacing-6;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: variables.$spacing-3 variables.$spacing-6;
+    font-size: variables.$font-size-sm;
+    color: variables.$text-secondary;
+    background-color: rgba(variables.$light-color, 0.5);
+    border-radius: variables.$border-radius-full;
+    transition: all variables.$transition-fast;
+
+    &:hover {
+      color: variables.$text-primary;
+      background-color: rgba(variables.$light-color, 0.8);
+    }
+  }
+
+  &__loading {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__loading-indicator {
+    text-align: center;
+
+    p {
+      margin-top: variables.$spacing-4;
+      color: variables.$text-secondary;
+      font-size: variables.$font-size-md;
+    }
+  }
+
+  &__loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(variables.$primary-color, 0.1);
+    border-left-color: variables.$primary-color;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1.2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
