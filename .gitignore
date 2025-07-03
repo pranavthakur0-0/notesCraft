@@ -1,0 +1,11 @@
+/node_modules
+/dist
+/build
+/logs
+/data
+/config
+/public
+/src
+/test
+/docs
+/examples
