@@ -17,7 +17,7 @@ const JWT_SECRET = 'your-default-secret-key-change-in-production';
 const JWT_EXPIRES_IN = '1d';
 
 // OpenRouter API configuration
-
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const SITE_URL = process.env.SITE_URL || 'https://notes-app.com';
 const SITE_NAME = process.env.SITE_NAME || 'Notes App';
 
