@@ -22,7 +22,7 @@ const SITE_URL = process.env.SITE_URL || 'https://notes-app.com';
 const SITE_NAME = process.env.SITE_NAME || 'Notes App';
 
 // Google Gemini API configuration
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyCWiG548XtXS7B7iXE6QMARyIJSH-l9-GQ';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 // Rate limiting
 const RATE_LIMIT_WINDOW_MS = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10); // 15 minutes
